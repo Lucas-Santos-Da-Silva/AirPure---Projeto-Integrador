@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+    type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+    type="text/javascript" charset="utf-8"></script>
+    <title>AirPure</title>
+</head>
+<body>
+    <nav class="navMenu">
+        <div id="airPure-logo">
+            <img src="./public/img/AirPure.png" alt="AirPure Logo">
+            <h1>AirPure</h1>
+        </div>
+        <div id="buttons">
+            <a href="./index.html">Inicio</a>
+            <a href="./pesquisas.html">Pesquisas</a>
+            <a href="./baixar-dados.html">Baixar dados</a>
+            <a href="./fonte-de-dados.html">Fonte de dados</a>
+            <a href="./about.html">Sobre Nós</a>
+        </div>
+    </nav>
+    <header>
+        <h2>Seja bem vindo à página de nosso projeto!!</h2>
+        <p>Neste nosso projeto você terá acesso de forma fácil de compreender dados e informação sobre o meio ambiente qualidade do ar em qualquer lugar sobre o mundo, tendo melhor noção de como você pode contribuir um pouco mais para a qualidade do nosso meio ambiente, porque também significa a qualidade de nosso bem-estar</p>
+    </header>
+    <main>
+        <input type="text" id="inputCidade" name="inputCidade" placeholder="Escreva o nome da cidade">
+        <button onclick="fetchWeather()">
+            Submit
+        </button>
+        <div id="city"></div>
+        <div id="error"></div>
+        <div id="weather"></div>
+        <div id="weather-container"></div>
+        <div id="monitor">
+            <div style="width: 640px; height: 480px" id="mapContainer">
+            </div>
+            <div id="cidadeInfo">
+                <p>
+                    São Paulo, centro financeiro do Brasil, está entre as cidades mais populosas do mundo, com diversas instituições culturais e uma rica tradição arquitetônica. Há prédios simbólicos como a catedral neogótica, o Edifício Martinelli, um arranha-céu inaugurado em 1929, e o Edifício Copan, com suas linhas curvas projetadas pelo arquiteto modernista Oscar Niemeyer. A igreja em estilo colonial do Pátio do Colégio marca o local onde os padres jesuítas fundaram a cidade em 1554. ― Google
+                    População: 11,45 milhões (2022)
+                    Altitude: 772 m
+                    Área total: 1 521,202 km²
+                    Clima: Subtropical úmido (Cfa)
+                    Densidade: 7 528,3 hab./km²
+                    Distritos: Lista: 32 prefeituras regionais;
+                    Fundação: 25 de janeiro de 1554 (470 anos)
+                </p>
+            </div>
+            <div class="vertical" id="monitorTop">
+                <h4>Previsão de hoje:</h4>
+                <div class="horizontal" id="todayForecast">
+                    
+                    <div class="blockToday" id="temp">
+                        <p id="maxTemp">
+                            27°
+                        </p>
+                        <p id="minTemp">
+                            15º
+                        </p>
+                    </div>
+                    <div class="blockToday" id="weather">
+                        Ensolarado
+                    </div>
+                    <div class="blockToday" id="humidity">
+                        93%
+                    </div>
+                    <div class="blockToday" id="pollution">
+                        117 US AQI
+                    </div>
+                    <div class="blockToday" id="wind">
+                        11.1 km/h
+                    </div>
+                    
+                </div>
+                <div class="vertical" id="poluentesTable">
+                    <div class="horizontal" id="poluentes">
+                        <div class="blockToday" id="PM25">
+                            PM25
+                        </div>
+                        <div class="blockToday" id="PM10">
+                            PM10
+                        </div>
+                        <div class="blockToday" id="O3">
+                            O3
+                        </div>
+                        <div class="blockToday" id="NO2">
+                            NO2
+                        </div>
+                        <div class="blockToday" id="SO2">
+                            SO2
+                        </div>
+                        <div class="blockToday" id="CO">
+                            CO
+                        </div>
+                    </div>
+                    <div class="horizontal" id="valorPoluentes">
+                        <div class="blockToday" id="PM25">
+                            44µg/m³
+                        </div>
+                        <div class="blockToday" id="PM10">
+                            53µg/m³
+                        </div>
+                        <div class="blockToday" id="O3">
+                            9µg/m³
+                        </div>
+                        <div class="blockToday" id="NO2">
+                            65µg/m³
+                        </div>
+                        <div class="blockToday" id="SO2">
+                            1µg/m³
+                        </div>
+                        <div class="blockToday" id="CO">
+                            801.5µg/m³
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vertical" id="monitorMain">
+                <h4>Histórico de Previsões:</h4>
+                <div class="horizontal" id="forecast">
+                    <div class="vertical">
+                        <div class="block">
+                            3 dias atrás
+                        </div>
+                        <div class="block">
+                            2 dias atrás
+                        </div>
+                        <div class="block">
+                            1 dias atrás
+                        </div>
+                        <div class="block">
+                            Hoje
+                        </div>
+                        <div class="block">
+                            1 dias atrás
+                        </div>
+                        <div class="block">
+                            2 dias atrás
+                        </div>
+                    </div>
+                    <div class="vertical" id="dayColumn">
+                        <div class="block" id="3DayBeforeDay">
+                            30 Agosto 2024
+                        </div>
+                        <div class="block" id="2DayBeforeDay">
+                            31 Agosto 2024
+                        </div>
+                        <div class="block" id="1DayBeforeDay">
+                            01 Setembro 2024
+                        </div>
+                        <div class="block" id="todayDay">
+                            02 Setembro 2024
+                        </div>
+                        <div class="block" id="3DayAfterDay">
+                            03 Setembro 2024
+                        </div>
+                        <div class="block" id="3DayAfterDay">
+                            04 Setembro 2024    
+                        </div>
+                    </div>
+                    <div  class="vertical" id="tempColumn">
+                        <div class="horizontal block" id="2DayBeforeTemp">
+                            <div id="2DayBeforeTempMax">
+                                31º
+                            </div>
+                            <div id="2DayBeforeTempMin">
+                                17º
+                            </div>
+                        </div>
+                        <div class="horizontal block" id="3DayBeforeTemp">
+                            <div id="2DayBeforeTempMax">
+                                31º
+                            </div>
+                            <div id="2DayBeforeTempMin">
+                                17º
+                            </div>
+                        </div>
+                        <div class="horizontal block" id="1DayBeforeTemp">
+                            <div id="1DayBeforeTempMax">
+                                30º
+                            </div>
+                            <div id="1DayBeforeTempMin">
+                                16º
+                            </div>
+                        </div>
+                        <div class="horizontal block" id="todayTemp">
+                            <div id="todayTempMax">
+                                32º
+                            </div>
+                            <div id="todayTempMin">
+                                16º
+                            </div>
+                        </div>
+                        <div  class="horizontal block"id="2DayAfterTemp">
+                            <div id="2DayAfterTempMax">
+                                33º
+                            </div>
+                            <div id="2DayAfterTempMin">
+                                19º
+                            </div>
+                        </div>
+                        <div class="horizontal block" id="3DayAfterTemp">
+                            <div id="3DayAfterTempMax">
+                                27º
+                            </div>
+                            <div id="3DayAfterTempMin">
+                                15º
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="vertical" id="pollutionLevelColumn">
+                        <div class="block" id="3DayBeforePollution">
+                            114 AQI US
+                        </div>
+                        <div class="block" id="2DayBeforePollution">
+                            114 AQI US
+                        </div>
+                        <div class="block" id="1DayBeforePollution">
+                            128 AQI US
+                        </div>
+                        <div class="block" id="todayPollution">
+                            118 AQI US
+                        </div>
+                        <div class="block" id="3DayAfterPollution">
+                            122 AQI US
+                        </div>
+                        <div class="block" id="3DayAfterPollution">
+                            158 AQI US
+                        </div>
+                    </div>
+                    <div  class="vertical" id="weatherColumn">
+                        <div class="block" id="3DayBeforeWeather">
+                            Haze
+                        </div>
+                        <div class="block" id="2DayBeforeWeather">
+                            Haze
+                        </div>
+                        <div class="block" id="1DayBeforeWeather">
+                            Sunny
+                        </div>
+                        <div class="block" id="todayWeather">
+                            Sunny
+                        </div>
+                        <div class="block" id="3DayAfterWeather">
+                            Sunny
+                        </div>
+                        <div class="block" id="3DayAfterWeather">
+                            Haze
+                        </div>
+                    </div>
+                    <div  class="vertical" id="humidityColumn">
+                        <div class="block" id="3DayBeforeHumidity">
+                            80%
+                        </div>
+                        <div class="block" id="2DayBeforeHumidity">
+                            80%
+                        </div>
+                        <div class="block" id="1DayBeforeHumidity">
+                            85%
+                        </div>
+                        <div class="block" id="todayHumidity">
+                            87%
+                        </div>
+                        <div class="block" id="3DayAfterHumidity">
+                            83%
+                        </div>
+                        <div class="block" id="3DayAfterHumidity">
+                            92%
+                        </div>
+                    </div>
+                    <div  class="vertical" id="windColumn">
+                        <div class="block" id="3DayBeforeWind">
+                            18 km/h
+                        </div>
+                        <div class="block" id="2DayBeforeWind">
+                            18 km/h
+                        </div>
+                        <div class="block" id="1DayBeforeWind">
+                            14.4 km/h
+                        </div>
+                        <div class="block" id="todayWind">
+                            10.8 km/h
+                        </div>
+                        <div class="block" id="3DayAfterWind">
+                            14.4 km/h
+                        </div>
+                        <div class="block" id="3DayAfterWind">
+                            21.6 km/h
+                        </div>
+                    </div>
+                </div>
+                <h4>Principal poluente</h4>
+                <div class="blockToday" id="principalPoluente">
+                    PM25
+                </div>
+                <div class="blockToday" id="valorPrincipalPoluente">
+                    <p>44µg/m³</p>
+                </div>
+            </div>
+            <div class="vertical" id="monitorFooter">
+                <div id="riscos">
+                    Particulate matter, including black carbon and others such as silica dust or toxic metals such as mercury or lead can be released from construction sites and make their way into people’s bodies via the lungs. If these particles are of small enough size (particularly PM2.5), they can penetrate into the blood stream via the alveoli sacs and make their way into the circulatory system, which can cause damage to the blood vessels, instances of ischemic heart disease to occur (whereby the heart fails to receive enough oxygen to its tissues), as well as increased risks of cardiac events such as heart attacks or arrythmias.
+                </div>
+            </div>
+        </div>
+        <div class="vertical " id="invistaNaSaude">
+            <div id="invistaMarcara">
+                <h4>Compre Mascaras Aqui!</h4>
+                <div class="horizontal" id="invistaMarcaraLinks">
+                    <div class="card">
+                        <a href="https://www.amazon.com.br/s?k=mascara+cirurgica&crid=18ED1XZXRKW5F&sprefix=mascara+cirur%2Caps%2C190&ref=nb_sb_ss_pltr-xclick_1_13">Compre na Amazon!</a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.magazineluiza.com.br/busca/mascara+cirurgica/?from=submit">Compre na MagazineLuiza!</a>
+                    </div>
+                    <div class="card">
+                        <a href="https://lista.mercadolivre.com.br/mascara-cirurgica#D[A:mascara%20cirurgica]">Compre no Mercado Livre!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="vertical " id="invistaMedidor">
+                <h4>Compre Monitor de Qualidade do Ar Aqui!</h4>
+                <div class="horizontal" id="invistaMarcaraLinks">
+                    <div class="card">
+                        <a href="https://www.amazon.com.br/s?k=monitor+de+qualidade+do+ar&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1UYZPV9CSO3J5&sprefix=monitor+de+qualidade+do+ar%2Caps%2C311&ref=nb_sb_noss_2">Compre na Amazon!</a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.magazineluiza.com.br/busca/monitor+de+qualidade+do+ar/?from=submit">Compre na MagazineLuiza!</a>
+                    </div>
+                    <div class="card">
+                        <a href="https://lista.mercadolivre.com.br/monitor-de-qualidade-do-ar#D[A:monitor%20de%20qualidade%20do%20ar]">Compre no Mercado Livre!</a>
+                    </div>                    
+                </div>
+            </div>
+            <div class="vertical " id="invistaPurificador">
+                <h4>Compre Monitor de Qualidade do Ar Aqui!</h4>
+                <div class="horizontal" id="invistaMarcaraLinks">
+                    <a class="card" href="https://www.amazon.com.br/s?k=purificador+de+ar&crid=K487191D9KSS&sprefix=purifica%2Caps%2C301&ref=nb_sb_ss_pltr-xclick_2_8">Compre na Amazon!</a>
+                    <a class="card" href="https://www.magazineluiza.com.br/busca/purificador+de+ar/?from=submit">Compre na MagazineLuiza!</a>
+                    <a class="card" href="https://lista.mercadolivre.com.br/purificador-de-ar#D[A:purificador%20de%20ar]">Compre no Mercado Livre!</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="weather.js">
+
+    </script>
+</body>
+</html>

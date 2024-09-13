@@ -1,0 +1,133 @@
+- Dados Históricos 
+Incorporar dados históricos para permitir análises de tendências ao longo do tempo
+Mostrar comparações de antes e depois que foi tomado os cuidados com meio ambiente em certos locais
+
+- Análise de dados e Visualização
+Criar dashboards iterativos para visualizar os dados
+
+- Parcerias e Colaborações
+Colaborar com ONGs, escolar e governos locais para aumentar o alcance e impacto do projeto
+Workshops e webinars para educar o público sobre como a qualidade do ar afeta a saúde e meio ambiente
+
+Escala com Indice de qualidade do ar 
+principal poluente
+recomendações de saúde
+temperatura, clima, umidade, velocidade do vento
+previsão para próximos dias
+informações sobre a cidade
+informações sobre a estação de monitoramento
+Informações sobre noticias no local
+botões de compra (compre uma mascara, compre um medidor, compre um purificador de ar)
+Quando pesquisa, mostra dados de cidades próximas
+Ao mostrar o indice de certa cidade, mostrar o que esse indice pode causar
+Mostrar concentração de poluentes no ar
+Pequeno card com informações sobre poluentes no ar e sobre o indice de qualidade
+Página sobre nossas pesquisas
+baixar informações em PNG 
+baixar informações em PDF
+Imprimir página
+api mapa de calor
+Recomendação de ações para casos de incêndio
+
+Mapa:
+
+https://openlayers.org/
+
+https://geoserver.org/
+
+https://www.qgis.org/
+
+Dados:
+
+https://www.globalforestwatch.org/
+
+
+
+Referencias Design:
+https://www.iqair.com/earth?srsltid=AfmBOop7t07A0MpL65D9ZGo9T1Vlhlg4K7OHDd-eWPmS089LRl9oE_I6
+
+https://air.plumelabs.com/en/
+
+https://www.ongakukan.co.jp/en/
+
+https://www.gsa.gov/
+
+https://www.rijkswaterstaat.nl/
+
+
+
+Referencias:
+https://www.iqair.com/earth?srsltid=AfmBOop7t07A0MpL65D9ZGo9T1Vlhlg4K7OHDd-eWPmS089LRl9oE_I6
+
+https://waqi.info/
+aqicn.org/historical/#city:beijing
+aqicn.org/station/beijing
+https://aqicn.org/links/
+
+https://air.plumelabs.com/en/
+https://air.plumelabs.com/en/sources
+https://air.plumelabs.com/air-quality-in-Madrid-d543
+https://plumelabs.com/en/forecast-api/?_gl=1*a7inns*_gcl_au*NTE3ODcwNjI3LjE3MjU5MDU5MzI.
+https://air.plumelabs.com/learn/en?_gl=1*1ayqs2y*_gcl_au*NTE3ODcwNjI3LjE3MjU5MDU5MzI.&_ga=2.2044087.765025900.1725905932-2056076035.1725905932
+
+https://www.breezometer.com/air-quality-map/
+https://www.breezometer.com/air-quality-map/air-quality/brazil/sao-paulo
+
+https://fire.airnow.gov/#6/37.228/-107.341
+
+https://www.airnow.gov/wildfires/
+
+https://www.drought.gov/data-maps-tools/airnow-fire-and-smoke-map
+
+https://mapsplatform.google.com/maps-products/air-quality/
+
+https://www.redesocialdecidades.org.br/br/SP/sao-paulo/concentracoes-de-o3-ozonio
+
+https://www.gov.br/conecta/catalogo/apis/api-de-servicos
+https://www.gov.br/mma/pt-br/
+https://www.gov.br/mcti/pt-br/
+
+https://portal.inmet.gov.br/
+
+
+Sources:
+https://www.airnow.gov/
+
+https://community.esri.com/
+
+https://www.usgs.gov/
+
+https://www.arl.noaa.gov/research/surface-atmosphere-exchange-home/o3-and-pm-2/
+
+https://www.noaa.gov/
+
+https://www.fao.org/home/en
+
+https://www.tomtom.com/
+
+https://www.esri.com/en-us/home?srsltid=AfmBOorVp-3965pKnqyGxhfyBWAlE8ymWPGkrd6SjMHfiYeZVM_xq0By
+
+https://www.openstreetmap.org/#map=4/-15.13/-53.19 !!!!!
+
+https://stadiamaps.com/ !!!!!
+
+https://openmaptiles.org/ !!!!!!
+
+https://www.nga.mil/
+
+https://www.nasa.gov/
+
+https://www.cgiar.org/
+
+https://www.nceas.ucsb.edu/
+
+https://gst.dk/
+
+https://www.rijkswaterstaat.nl/
+
+https://www.gsa.gov/
+
+
+API:
+https://aqicn.org/data-platform/api/H1451/
+https://aqicn.org/api/
